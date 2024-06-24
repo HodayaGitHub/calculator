@@ -1,0 +1,4 @@
+.vscode
+.jest-cache
+.env
+node_modules

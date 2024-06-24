@@ -1,0 +1,63 @@
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: Arithmetic Operations API
+  description: API to perform arithmetic operations on two numbers.
+servers:
+  - url: http://localhost:4040
+    description: Main server
+paths:
+  /calculate:
+    post:
+      summary: Perform an arithmetic operation on two numbers
+      operationId: calculateOperation
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: header
+          name: Operation
+          required: true
+          schema:
+            type: string
+            enum:
+              - add
+              - subtract
+              - multiply
+              - divide
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                number1:
+                  type: number
+                  example: 10
+                number2:
+                  type: number
+                  example: 5
+              required:
+                - num1
+                - num2
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    example: 15
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized - Access token is missing or invalid
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
