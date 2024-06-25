@@ -4,12 +4,18 @@ import { Operation } from '../../common/models';
 
 export const calculate = (req: Request, res: Response): void => {
     const { num1, num2 } = req.body;
-    const operation: Operation | undefined = req.headers[OPERATION_HEADER_NAME] as Operation | undefined;
+    const operation: Operation | undefined | null = req.headers[OPERATION_HEADER_NAME] as Operation | undefined | null;
     
     if (isNaN(num1) || isNaN(num2)) {
         res.status(400).send({ error: 'Invalid parameters' });
         return;
     }
+
+    if (operation === undefined || operation === null) {
+        res.status(400).send({ error: 'Operation header is missing' });
+        return;
+    }
+    
 
     let result: number | undefined;
     switch (operation) {

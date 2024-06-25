@@ -172,7 +172,7 @@ describe('POST /api/calculate', () => {
     });
 
     it('should return 400 for empty input', (done) => {
-        const payload = {};  
+        const payload = {};
 
         const operation = Operation.Add;
 
@@ -188,6 +188,26 @@ describe('POST /api/calculate', () => {
                 expect(res.body.error).toBe('Invalid parameters');
                 done();
             });
+    });
+
+    // Not sending a header which will cause a undefined value for the header.
+    it('should return 400 if operation header is undefined', (done) => {
+        const payload = {
+            num1: 10,
+            num2: 5,
+        };
+    
+        request(server)
+            .post('/api/calculate')
+            // Removed the OPERATION_HEADER_NAME to simulate a undefined header
+            .set('Authorization', `Bearer ${token}`)
+            .send(payload)
+            .expect(400)
+            .expect((res) => {
+                expect(res.body).toHaveProperty('error');
+                expect(res.body.error).toBe('Operation header is missing');
+            })
+            .end(done);
     });
 
 
