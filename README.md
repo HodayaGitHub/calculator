@@ -130,3 +130,19 @@ Follow these steps to build and run the application using Docker and Docker Comp
 To run the tests, use the following command:
  ```npm run test```
 
+**Test Structure**
+The tests are built using supertest for HTTP assertions and jest as the testing framework.
+
+### Token Validation Tests:
+- Ensures the authentication middleware (verifyToken) correctly validates JWT tokens.
+- Verifies successful token validation.
+- Handles invalid token formats.
+- Handles token verification failures.
+
+### Calculate API Tests:
+- Tests various operations (addition, subtraction, multiplication, division) with valid and invalid inputs.
+- Verifies the HTTP responses.
+- Tests error handling for division by zero, invalid operations, and invalid input types.
+- Checks for missing operation headers.
+
+
