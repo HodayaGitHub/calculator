@@ -6,7 +6,6 @@ import swaggerUi from 'swagger-ui-express';
 import dotenv from 'dotenv';
 import { calculateRoutes } from './api/calculate/calculate.routes';
 import { tokenRoutes } from './api/token/token.routes';
-
 dotenv.config();
 
 const app: Application = express();
@@ -14,7 +13,7 @@ const server: http.Server = http.createServer(app);
 
 app.use(express.json());
 
-const swaggerDocument = YAML.load('./api/swagger.yaml');
+const swaggerDocument = YAML.load('./server-stub-output/api/openapi.yaml');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const corsOptions: cors.CorsOptions = {
