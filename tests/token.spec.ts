@@ -27,10 +27,18 @@ app.get('/test-verify-token', verifyToken, (req, res) => {
 describe('Auth Middleware Tests', () => {
     it('should return 400 if token format is invalid', (done) => {
         request(server)
-          .get('/test-verify-token')
-          .set('Authorization', 'InvalidTokenFormat')
-          .expect(400)
-          .end(done);
-      });
-    
+            .get('/test-verify-token')
+            .set('Authorization', 'InvalidTokenFormat')
+            .expect(400)
+            .end(done);
+    });
+
+    it('should return 400 if token format is invalid', (done) => {
+        request(server)
+            .get('/test-verify-token')
+            .set('Authorization', 'InvalidTokenFormat')
+            .expect(400)
+            .end(done);
+    });
+
 });
