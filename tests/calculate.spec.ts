@@ -150,8 +150,26 @@ describe('POST /api/calculate', () => {
             });
     });
 
+    it('should return 400 for invalid input (letter instead of number)', (done) => {
+        const payload = {
+            num1: 'Hodaya',
+            num2: 5,
+        };
+        const operation = Operation.Add;
 
-
+        request(server)
+            .post('/api/calculate')
+            .set(OPERATION_HEADER_NAME, operation)
+            .set('Authorization', `Bearer ${token}`)
+            .send(payload)
+            .expect(400)
+            .end((err, res) => {
+                if (err) return done(err);
+                expect(res.body).toHaveProperty('error');
+                expect(res.body.error).toBe('Invalid parameters');
+                done();
+            });
+    });
 
 });
 
