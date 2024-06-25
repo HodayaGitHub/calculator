@@ -14,7 +14,7 @@ const server: http.Server = http.createServer(app);
 let token: string;
 
 beforeAll((done) => {
-    token = generateToken(); 
+    token = generateToken();
     done();
 });
 
@@ -27,6 +27,7 @@ describe('POST /api/calculate', () => {
             num1: 10,
             num2: 5,
         };
+
         const operation = Operation.Add;
 
         request(server)
@@ -111,7 +112,7 @@ describe('POST /api/calculate', () => {
             num1: 10,
             num2: 0,
         };
-        const operation = 'divide';
+        const operation = Operation.Divide;
 
         request(server)
             .post('/api/calculate')
@@ -132,11 +133,12 @@ describe('POST /api/calculate', () => {
             num1: 10,
             num2: 5,
         };
-        const operation = 'invalid';
+
+        const invalidOperation = 'invalid';
 
         request(server)
             .post('/api/calculate')
-            .set(OPERATION_HEADER_NAME, operation)
+            .set(OPERATION_HEADER_NAME, invalidOperation)
             .set('Authorization', `Bearer ${token}`)
             .send(payload)
             .expect(400)
@@ -147,5 +149,9 @@ describe('POST /api/calculate', () => {
                 done();
             });
     });
+
+
+
+
 });
 

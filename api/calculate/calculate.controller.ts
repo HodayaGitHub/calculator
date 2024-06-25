@@ -4,7 +4,7 @@ import { Operation } from '../../common/models';
 
 export const calculate = (req: Request, res: Response): void => {
     const { num1, num2 } = req.body;
-    const operation: string | undefined = req.headers[OPERATION_HEADER_NAME] as string | undefined;
+    const operation: Operation | undefined = req.headers[OPERATION_HEADER_NAME] as Operation | undefined;
     
     if (isNaN(num1) || isNaN(num2)) {
         res.status(400).send({ error: 'Invalid parameters' });
@@ -30,7 +30,7 @@ export const calculate = (req: Request, res: Response): void => {
             result = num1 / num2;
             break;
         default:
-            res.status(400).send({ error: 'Unknown operation' });
+            res.status(400).send({ error: 'Invalid operation' });
             return;
     }
 
