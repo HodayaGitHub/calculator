@@ -41,4 +41,13 @@ describe('Auth Middleware Tests', () => {
             .end(done);
     });
 
+    it('should return 403 if token verification fails', (done) => {
+        const invalidToken = 'Bearer invalidtoken';
+        request(server)
+            .get('/test-verify-token')
+            .set('Authorization', invalidToken)
+            .expect(403)
+            .end(done);
+    });
+
 });
