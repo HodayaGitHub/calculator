@@ -171,5 +171,25 @@ describe('POST /api/calculate', () => {
             });
     });
 
+    it('should return 400 for empty input', (done) => {
+        const payload = {};  
+
+        const operation = Operation.Add;
+
+        request(server)
+            .post('/api/calculate')
+            .set(OPERATION_HEADER_NAME, operation)
+            .set('Authorization', `Bearer ${token}`)
+            .send(payload)
+            .expect(400)
+            .end((err, res) => {
+                if (err) return done(err);
+                expect(res.body).toHaveProperty('error');
+                expect(res.body.error).toBe('Invalid parameters');
+                done();
+            });
+    });
+
+
 });
 
