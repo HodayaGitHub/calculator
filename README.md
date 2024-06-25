@@ -1,5 +1,4 @@
-# Calculator
-
+# Calculator 🧮
 This project is a simple numeric calculator built with Node.js and TypeScript. The application is containerized using Docker and can be easily set up and run using Docker Compose. <br>
 Calculator API is a simple service designed to perform arithmetic operations on two numbers. <br>
 The API supports addition, subtraction, multiplication, and division. Additionally, it includes JWT-based authentication to secure the endpoints.
