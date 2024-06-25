@@ -12,10 +12,8 @@ The API supports addition, subtraction, multiplication, and division. Additional
 7. [Running and using the API](#running-and-using-the-api)
 8. [Run the Project](#run-the-project)
    
-    <br> </br>
 
-
-## Features:
+# Features:
 - Perform arithmetic operations (add, subtract, multiply, divide) on two numbers.
 - JWT bearer authentication for secure access.
 - Server stub using Swagger Codegen.
@@ -39,21 +37,21 @@ The API supports addition, subtraction, multiplication, and division. Additional
 
 # Installation and running the project on your local machine: 
 
-## 1. Clone the repository:
+### 1. Clone the repository:
    ```git clone https://github.com/HodayaGitHub/calculator.git```
    
-## 2. Change to the project directory:
+### 2. Change to the project directory:
    ```cd calculator```
 
-## 3. Install the dependencies
+### 3. Install the dependencies
    ```npm i```
    
-## 4. Create a .env file in the root directory and add the following environment variables: 
+### 4. Create a .env file in the root directory and add the following environment variables: 
  ```env
    PORT=4040
    JWT_SECRET=your_jwt_secret_key
   ```
-## 5. Running the Application - dev server:
+### 5. Running the Application - dev server:
 ```npm run dev```
    
 The server will be running at ```http://127.0.0.1:4040```
@@ -64,19 +62,19 @@ The API documentation that is built using openapi - Swagger will be available at
 # Building and Running the Docker
 Follow these steps to build and run the application using Docker and Docker Compose:
 
-## 1. Build the Docker Image using Docker Compose
+### 1. Build the Docker Image using Docker Compose
 ```docker-compose build```
 
-## 2. Run the Docker Container:
+### 2. Run the Docker Container:
 ```docker-compose up```
 
-## 3. Stop the docker:
+### 3. Stop the docker:
 ```docker-compose down``` or Ctrl + C 
 
 
 # Running and using the API
 
-## 1. Generate Token (can be done using Postman):
+### 1. Generate Token (can be done using Postman):
 - **URL:** `/api/generate-token`
 - **Method:** `GET`
 - **Description:** Generates a JWT token for authentication.
@@ -86,7 +84,7 @@ Follow these steps to build and run the application using Docker and Docker Comp
     "token": "your_jwt_token"
   }
 
-## 2. Access the API and running calculation operations:
+### 2. Access the API and running calculation operations:
 - **URL:**  /api/calculate
 - **Method:** POST
 - **Headers:**
@@ -98,7 +96,7 @@ Follow these steps to build and run the application using Docker and Docker Comp
    "num1": 10,"num2": 5
   }
 
-## 3. Optional Responses: 
+### 3. Optional Responses: 
 
 - **200 OK**
 ```json
