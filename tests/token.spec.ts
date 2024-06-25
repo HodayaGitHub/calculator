@@ -25,6 +25,19 @@ app.get('/test-verify-token', verifyToken, (req, res) => {
 
 
 describe('Auth Middleware Tests', () => {
+
+    it('should pass through middleware with valid token', (done) => {
+        request(server)
+            .get('/test-verify-token')
+            .set('Authorization', `Bearer ${token}`)
+            .expect(200)
+            .end((err, res) => {
+                if (err) return done(err);
+                expect(res.body.message).toEqual('Token verified successfully');
+                done();
+            });
+    });
+
     it('should return 400 if token format is invalid', (done) => {
         request(server)
             .get('/test-verify-token')
