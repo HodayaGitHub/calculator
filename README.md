@@ -13,7 +13,7 @@ The API supports addition, subtraction, multiplication, and division. Additional
 8. [Run the Project](#run-the-project)
    
 
-# Features:
+# Features
 - Perform arithmetic operations (add, subtract, multiply, divide) on two numbers.
 - JWT bearer authentication for secure access.
 - Server stub using Swagger Codegen.
@@ -21,7 +21,7 @@ The API supports addition, subtraction, multiplication, and division. Additional
 - Extensive testing of multiple scenarios and edge cases for both API and token mechanisms. 
 
 
-# Technologies:
+# Technologies
 - Node.js
 - Express
 - JWT (JSON Web Tokens)
@@ -29,13 +29,13 @@ The API supports addition, subtraction, multiplication, and division. Additional
 - TypeScript
 - Jest (for unit tests)
 
-# Prerequisites:
+# Prerequisites
 - Node.js (version 14.x or later)
 - npm (version 6.x or later)
 - Docker desktop app.
 - Postman.
 
-# Installation and running the project on your local machine: 
+# Installation and running the project on your local machine
 
 ### 1. Clone the repository:
    ```git clone https://github.com/HodayaGitHub/calculator.git```
@@ -43,7 +43,7 @@ The API supports addition, subtraction, multiplication, and division. Additional
 ### 2. Change to the project directory:
    ```cd calculator```
 
-### 3. Install the dependencies
+### 3. Install the dependencies:
    ```npm i```
    
 ### 4. Create a .env file in the root directory and add the following environment variables: 
@@ -62,7 +62,7 @@ The API documentation that is built using openapi - Swagger will be available at
 # Building and Running the Docker
 Follow these steps to build and run the application using Docker and Docker Compose:
 
-### 1. Build the Docker Image using Docker Compose
+### 1. Build the Docker Image using Docker Compose:
 ```docker-compose build```
 
 ### 2. Run the Docker Container:
@@ -127,6 +127,24 @@ Follow these steps to build and run the application using Docker and Docker Comp
 ```
 
 # Testing
+
+### 1. run the tests:
 To run the tests, use the following command:
  ```npm run test```
+
+### 2. Test Structure:
+The tests are built using supertest for HTTP assertions and jest as the testing framework.
+
+**Token Validation Tests:**
+- Ensures the authentication middleware (verifyToken) correctly validates JWT tokens.
+- Verifies successful token validation.
+- Handles invalid token formats.
+- Handles token verification failures.
+
+**Calculate API Tests:**
+- Tests various operations (addition, subtraction, multiplication, division) with valid and invalid inputs.
+- Verifies the HTTP responses.
+- Tests error handling for division by zero, invalid operations, and invalid input types.
+- Checks for missing operation headers.
+
 
