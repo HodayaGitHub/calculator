@@ -4,8 +4,6 @@ import express, { Express, Request, Response, NextFunction } from 'express';
 import { verifyToken } from '../middlewares/auth.middleware';
 import { calculateRoutes } from '../api/calculate/calculate.routes';
 import { generateToken } from '../utils/jwt.utils';
-import { AUTH_HEADER } from '../common/consts';
-import jwt from 'jsonwebtoken';
 
 process.env.JWT_SECRET = 'testsecret';
 
@@ -62,5 +60,4 @@ describe('Auth Middleware Tests', () => {
             .expect(403)
             .end(done);
     });
-
 });

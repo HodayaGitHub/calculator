@@ -6,6 +6,7 @@ import swaggerUi from 'swagger-ui-express';
 import dotenv from 'dotenv';
 import { calculateRoutes } from './api/calculate/calculate.routes';
 import { tokenRoutes } from './api/token/token.routes';
+
 dotenv.config();
 
 const app: Application = express();
